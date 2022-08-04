@@ -47,7 +47,7 @@ Otherwise, revert to the default behavior (i.e. enable `evil-insert-state')."
 (defun spacemacs/evil-search-clear-highlight ()
   "Clear evil-search or evil-ex-search persistent highlights."
   (interactive)
-  (case evil-search-module
+  (cl-case evil-search-module
     ('isearch (evil-search-highlight-persist-remove-all))
     ('evil-search (evil-ex-nohighlight))))
 
