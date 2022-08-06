@@ -30,7 +30,9 @@
 ;;; Code:
 
 (defconst xuejun-learn-packages
-  '(helm-dictionary)
+  '(youdao-dictionary
+    company
+    (occur-mode :location built-in))
   "The list of Lisp packages required by the xuejun-learn layer.
 
 Each entry is either:
@@ -59,12 +61,19 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format"
   )
 
-(defun xuejun-learn/init-helm-dictionary()
-  (use-package helm-dictionary
+(defun xuejun-learn/init-youdao-dictionary()
+  (use-package youdao-dictionary
     :defer t
     :init
-    (spacemacs/set-leader-keys "oy" 'helm-dictionary))
+    (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+    )
   )
 
+(defun xuejun-learn/post-init-companny()
+  (setq company-minimum-prefix-length 1))
+
+(defun xuejun-learn/init-occur-mode()
+  (evilified-state-evilify-map occur-mode-map
+    :mode occur-mode))
 
 ;;; packages.el ends here

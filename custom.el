@@ -11,7 +11,8 @@
  '(helm-dictionary-browser-function 'browse-url-default-windows-browser)
  '(helm-dictionary-database "/usr/share/trans/de-en")
  '(package-selected-packages
-   '(helm-dictionary youdao-dictionary names chinese-word-at-point popwin smartparens counsel swiper smex hungry-delete company))
+   '(popwin smartparens counsel swiper smex hungry-delete company))
+ '(popwin:popup-window-position 'right)
  '(warning-suppress-log-types '((use-package) (use-package) ((package reinitialization))))
  '(warning-suppress-types '((use-package) ((package reinitialization)))))
 (custom-set-faces

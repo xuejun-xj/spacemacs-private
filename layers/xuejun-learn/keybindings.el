@@ -10,8 +10,8 @@
              (region-end))
           (let ((sym (thing-at-point 'symbol)))
             (when (stringp sym)
-              (regexp-quote))))
+              (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
 
-(global-set-key (kbd "M-s o") 'occur-dwin)
+(global-set-key (kbd "M-s o") 'occur-dwim)
