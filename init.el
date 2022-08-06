@@ -70,6 +70,10 @@ values."
                                     gitignore-mode
                                     helm
                                     helm-gitignore
+                                    flyspell
+                                    flyspell-correct
+                                    flyspell-correct-helm
+                                    flyspell-correct-ivy
                                     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
