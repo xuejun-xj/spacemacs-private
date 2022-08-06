@@ -39,18 +39,14 @@ values."
      ivy
      helm
      auto-completion
-     better-defaults
+     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      emacs-lisp
-     ;; git
      markdown
      org
      osx
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     ;; version-control
+     xuejun-learn
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -334,6 +330,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
+  (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
