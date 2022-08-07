@@ -46,6 +46,8 @@ values."
      osx
      spell-checking
      syntax-checking
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
      xuejun-learn
      )
    ;; List of additional packages that will be installed without being

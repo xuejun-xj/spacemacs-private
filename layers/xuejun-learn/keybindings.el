@@ -21,16 +21,23 @@
 (spacemacs/set-leader-keys "fL" 'helm-locate)
 (spacemacs/set-leader-keys "fel" 'helm-locate-library)
 
-;; project find files
-(defun xuejun-learn/open-file-with-projectile-or-counsel-git ()
-  (interactive)
-  (counsel-git))
-;;  (if (xuejun-learn/vcsproject-root)
-;;      (counsel-git)
-;;    (if (projectile-project-p)
-;;        (projectile-find-file)
-;;      (ido-find-file))))
-(spacemacs/set-leader-keys "pf" 'xuejun-learn/open-file-with-projectile-or-counsel-git)
-
 ;; useful buffer bindings
 (spacemacs/set-leader-keys "bi" 'ibuffer)
+
+;; layout bindings
+(defun xuejun/load-my-layout ()
+  (interactive)
+  (persp-load-state-from-file (concat persp-save-dir "xuejun")))
+
+(defun xuejun/save-my-layout ()
+  (interactive)
+  (persp-save-state-to-file (concat persp-save-dir "xuejun")))
+
+(spacemacs/set-leader-keys "oll" 'xuejun/load-my-layout)
+(spacemacs/set-leader-keys "ols" 'xuejun/save-my-layout)
+
+;; golden ratio
+(spacemacs/set-leader-keys "wg" 'golden-ratio)
+
+;; find file in repository
+(spacemacs/set-leader-keys "pf" 'find-file-in-repository)

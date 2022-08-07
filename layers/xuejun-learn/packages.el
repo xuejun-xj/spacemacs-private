@@ -31,8 +31,9 @@
 
 (defconst xuejun-learn-packages
   '(youdao-dictionary
-    company
-    (occur-mode :location built-in))
+    (occur-mode :location built-in)
+    find-file-in-repository
+    )
   "The list of Lisp packages required by the xuejun-learn layer.
 
 Each entry is either:
@@ -69,11 +70,11 @@ Each entry is either:
     )
   )
 
-(defun xuejun-learn/post-init-companny()
-  (setq company-minimum-prefix-length 1))
-
 (defun xuejun-learn/init-occur-mode()
   (evilified-state-evilify-map occur-mode-map
     :mode occur-mode))
+
+(defun xuejun-learn/init-find-file-in-repository ()
+  (use-package find-file-in-repository))
 
 ;;; packages.el ends here
