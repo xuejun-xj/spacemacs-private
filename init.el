@@ -46,6 +46,8 @@ values."
      osx
      spell-checking
      syntax-checking
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
      xuejun-learn
      )
    ;; List of additional packages that will be installed without being
@@ -331,6 +333,10 @@ you should place your code here."
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  (defadvice evil-search-next (after advice-for-evil-search-next activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
+  (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
