@@ -41,3 +41,16 @@
 
 ;; find file in repository
 (spacemacs/set-leader-keys "pf" 'find-file-in-repository)
+
+;; quick-replace
+(defun xuejun/evil-quick-replace (beg end)
+  (interactive "r")
+  (when (evil-visual-state-p)
+    (evil-exit-visual-state)
+    (let ((selection (regexp-quote (buffer-substring-no-properties beg end))))
+      (setq command-string (format "%%s /%s//g" selection))
+      (minibuffer-with-setup-hook
+          (lambda () (backward-char 2))
+        (evil-ex command-string)))))
+
+(define-key evil-visual-state-map (kbd "C-r") 'xuejun/evil-quick-replace)
