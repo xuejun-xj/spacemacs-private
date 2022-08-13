@@ -131,7 +131,7 @@ around point as the initial input. If DIR is non nil start in
 that directory."
     (interactive)
     (require 'counsel)
-    (letf* ((initial-input (if use-initial-input
+    (cl-letf* ((initial-input (if use-initial-input
                                (if (region-active-p)
                                    (buffer-substring-no-properties
                                     (region-beginning) (region-end))

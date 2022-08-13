@@ -1,5 +1,4 @@
 auto-save-list/
-elpa/
 export/
 ac-comphist.dat
 eproject.lst
@@ -46,6 +45,7 @@ python-*-docs-html
 /recentf
 .mc-lists.el
 transient/
+*.~undo-tree~
 
 # Private directory
 private/

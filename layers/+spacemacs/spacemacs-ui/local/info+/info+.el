@@ -4432,7 +4432,7 @@ Syntax class:\\|User Option:\\|Variable:\\)\\(.*\\)\\([\n]          \\(.*\\)\\)*
                             nil t)
     (let ((symb  (intern (match-string 1))))
       (put-text-property (match-beginning 1) (match-end 1)
-                         'font-lock-face (case symb
+                         'font-lock-face (cl-case symb
                                            ('Constant:       'info-constant-ref-item)
                                            ('Command:        'info-command-ref-item)
                                            ('Function:       'info-function-ref-item)
