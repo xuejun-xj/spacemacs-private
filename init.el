@@ -36,16 +36,28 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ivy
-     helm
-     auto-completion
+     (auto-completion :vairables
+                      company-mode-completion-cancel-keywords '(
+                                                                "do"
+                                                                "then"
+                                                                "begin"
+                                                                "case"
+                                                                )
+                      auto-completion-tab-key-behavior 'cycle
+                      :disbale-for org markdown)
+     (ivy :variables
+          ivy-enable-advanced-buffer-information nil
+          ivy-wrap t
+          ivy-height 15)
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     enable-flyspell-auto-completion t)
+     sytax-checking
      (better-defaults :variables better-defaults-move-to-end-of-code-first t)
      emacs-lisp
      markdown
      org
      osx
-     spell-checking
-     syntax-checking
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
      )
@@ -336,5 +348,5 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(setq custom-file "d:/Users/xj/.spacemacs.d/custom.el")
+(setq custom-file "~/.spacemacs.d/custom.el")
 (load custom-file 'no-error 'no-message)
