@@ -36,6 +36,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;; Completion
      (auto-completion :vairables
                       company-mode-completion-cancel-keywords '(
                                                                 "do"
@@ -49,15 +50,23 @@ values."
           ivy-enable-advanced-buffer-information nil
           ivy-wrap t
           ivy-height 15)
+     ;; Checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil
                      enable-flyspell-auto-completion t)
-     sytax-checking
-     (better-defaults :variables better-defaults-move-to-end-of-code-first t)
+     syntax-checking
+     ;; Emacs
+     (ibuffer :variables
+              ibuffer-group-buffers-by 'modes)
+     semantic
+     (better-defaults :variables
+                      better-defaults-move-to-end-of-code-first t)
+     ;; Internation support
+     (chinese :variables
+              chinese-enable-youdao-dict t
+              chinese-enable-avy-pinyin nil)
      emacs-lisp
-     markdown
-     org
-     osx
+     markdown org osx
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
      )
@@ -66,9 +75,9 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-	f
-       compat
-		   )
+                                      f
+                                      compat
+                                      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -222,7 +231,7 @@ values."
    dotspacemacs-enable-paste-transient-state nil
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
-   dotspacemacs-which-key-delay 0.1
+   dotspacemacs-which-key-delay 0.5
    ;; Which-key frame position. Possible values are `right', `bottom' and
    ;; `right-then-bottom'. right-then-bottom tries to display the frame to the
    ;; right; if there is insufficient space it displays it at the bottom.
@@ -274,12 +283,13 @@ values."
    ;;   :size-limit-kb 1000)
    ;; (default nil)
    dotspacemacs-line-numbers '(:relative nil
-			       :disabled-for-modes dired-mode
-                                                   doc-view-mode
-						   markdown-mode
-						   org-mode
-						   pdf-view-mode
-						   text-mode
+                               :disabled-for-modes
+                               dired-mode
+                               doc-view-mode
+                               markdown-mode
+                               org-mode
+                               pdf-view-mode
+                               text-mode
                                :size-limit-kb 1000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
@@ -340,6 +350,8 @@ you should place your code here."
   (setcdr evil-insert-state-map nil)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
+  (define-key evil-normal-state-map (kbd "C-y") 'yank)
+  (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
   (defadvice evil-search-next (after advice-for-evil-search-next activate)
     (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
