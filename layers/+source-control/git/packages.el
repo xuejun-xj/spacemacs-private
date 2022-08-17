@@ -11,11 +11,9 @@
 
 (setq git-packages
       '(
-        evil-magit
+        evil-collection
         fill-column-indicator
-        gitattributes-mode
-        gitconfig-mode
-        gitignore-mode
+        git-modes
         git-commit
         git-link
         git-messenger
@@ -29,11 +27,8 @@
         smeargle
         ))
 
-(defun git/init-evil-magit ()
-  (with-eval-after-load 'magit
-    (require 'evil-magit)
-    (evil-define-key 'motion magit-mode-map
-      (kbd dotspacemacs-leader-key) spacemacs-default-map)))
+(defun git/pre-init-evil-collection ()
+  (add-to-list 'spacemacs-evil-collection-allowed-list 'magit))
 
 (defun git/post-init-fill-column-indicator ()
   (add-hook 'git-commit-mode-hook 'fci-mode))
@@ -95,16 +90,8 @@
         ("Y" git-timemachine-kill-revision)
         ("q" nil :exit t)))))
 
-(defun git/init-gitattributes-mode ()
-  (use-package gitattributes-mode
-    :defer t))
-
-(defun git/init-gitconfig-mode ()
-  (use-package gitconfig-mode
-    :defer t))
-
-(defun git/init-gitignore-mode ()
-  (use-package gitignore-mode
+(defun git/init-git-modes ()
+  (use-package git-modes
     :defer t))
 
 (defun git/init-magit ()
@@ -157,8 +144,8 @@ Press [_b_] again to blame further in the history, [_q_] to go up or quit."
       (require 'git-rebase)
       ;; bind function keys
       ;; (define-key magit-mode-map (kbd "<tab>") 'magit-section-toggle)
-      (unless (configuration-layer/package-usedp 'evil-magit)
-        ;; use auto evilification if `evil-magit' is not used
+      (unless (configuration-layer/package-usedp 'evil-collection)
+        ;; use auto evilification if `evil-collection' is not used
         (evilified-state-evilify-map magit-mode-map
           :bindings
           "gr" 'magit-refresh

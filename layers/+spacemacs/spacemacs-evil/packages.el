@@ -12,6 +12,7 @@
 (setq spacemacs-evil-packages
       '(evil-anzu
         evil-args
+        evil-collection
         evil-ediff
         evil-exchange
         evil-iedit-state
@@ -73,6 +74,13 @@
   (use-package evil-ediff
     :after (ediff)
     :if (memq dotspacemacs-editing-style '(hybrid vim))))
+
+(defun spacemacs-evil/init-evil-collection()
+  (use-package evil-collection
+    :after evil
+    :config
+    (setq evil-collection-mode-list spacemacs-evil-collection-allowed-list)
+    (evil-collection-init)))
 
 (defun spacemacs-evil/init-evil-exchange ()
   (use-package evil-exchange
