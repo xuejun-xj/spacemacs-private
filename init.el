@@ -50,25 +50,47 @@ values."
           ivy-enable-advanced-buffer-information nil
           ivy-wrap t
           ivy-height 15)
+
      ;; Checkers
      (spell-checking :variables
                      spell-checking-enable-by-default nil
                      enable-flyspell-auto-completion t)
      syntax-checking
+
      ;; Emacs
      (ibuffer :variables
               ibuffer-group-buffers-by 'modes)
      semantic
      (better-defaults :variables
                       better-defaults-move-to-end-of-code-first t)
+
      ;; Internation support
      (chinese :variables
               chinese-enable-youdao-dict t
               chinese-enable-avy-pinyin nil)
-     emacs-lisp
-     markdown org osx
+
+     ;; Source control
+     (git :variables
+          git-magit-status-fullscreen t)
+     ;;(version-control :variables
+     ;;                 version-control-diff-tool 'git-gutter+
+     ;;                 version-control-global-margin t
+     ;;                 version-control-diff-side 'right)
+
+     ;; Spacemacs layers
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
+
+     ;; Tags
+     (gtags :disabled-for emacs-lisp)
+
+     ;; Themes
+     (colors :variables
+             colors-colorize-identifiers 'variable)
+     ;; theming  ;; customize personal theme
+
+     emacs-lisp
+     org
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -150,7 +172,8 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+                         light-blue
+                         misterioso)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
