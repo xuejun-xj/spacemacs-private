@@ -63,6 +63,7 @@ values."
      semantic
      (better-defaults :variables
                       better-defaults-move-to-end-of-code-first t)
+     org
 
      ;; Internation support
      (chinese :variables
@@ -89,8 +90,21 @@ values."
              colors-colorize-identifiers 'variable)
      ;; theming  ;; customize personal theme
 
+     ;; tools
+     imenu-list
+     ;; pdf-tools  ;; support pdf
+     ;; ranger     ;; for future learn
+
+     ;; Vim
+     ;; evil-cleverparens  ;; for future learn
+     evil-commentary
+     ;; vim-powerline      ;; unuse!
+
+     ;; web service
+     ;; search-engine      ;; GNU only
+
+     ;; programming
      emacs-lisp
-     org
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -374,7 +388,16 @@ you should place your code here."
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-y") 'yank)
+  (define-key evil-normal-state-map [mouse-4] 'evil-previous-line)
+  (define-key evil-normal-state-map [mouse-5] 'evil-next-line)
+  (define-key evil-normal-state-map (kbd "]]") 'evil-jump-to-tag)
+  (define-key evil-normal-state-map (kbd "[[") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "/") 'swiper)
+  (define-key evil-normal-state-map (kbd "n") 'evil-search-previous)
+  (define-key evil-normal-state-map (kbd "N") 'evil-search-next)
   (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+  (defadvice swiper (after advice-for-swiper activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-search-next (after advice-for-evil-search-next activate)
     (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-search-previous (after advice-for-evil-search-previous activate)
