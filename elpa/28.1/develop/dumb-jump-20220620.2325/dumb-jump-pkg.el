@@ -1,0 +1,2 @@
+;;; Generated package description from dumb-jump.el  -*- no-byte-compile: t -*-
+(define-package "dumb-jump" "20220620.2325" "Jump to definition for 50+ languages without configuration" '((emacs "24.3") (s "1.11.0") (dash "2.9.0") (popup "0.5.3")) :commit "0a783d1db610ff1dc4e1b7869589cff16ff92f7a" :authors '(("jack angers and contributors")) :maintainer '("jack angers and contributors") :keywords '("programming") :url "https://github.com/jacktasia/dumb-jump")

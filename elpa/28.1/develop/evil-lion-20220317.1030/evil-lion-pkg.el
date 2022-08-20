@@ -1,0 +1,2 @@
+;;; Generated package description from evil-lion.el  -*- no-byte-compile: t -*-
+(define-package "evil-lion" "20220317.1030" "Evil align operator, port of vim-lion" '((emacs "24.3") (evil "1.0.0")) :commit "a55eb647422342f6b1cf867f797b060b3645d9d8" :authors '(("edkolev" . "evgenysw@gmail.com")) :maintainer '("edkolev" . "evgenysw@gmail.com") :keywords '("emulations" "evil" "vim") :url "http://github.com/edkolev/evil-lion")

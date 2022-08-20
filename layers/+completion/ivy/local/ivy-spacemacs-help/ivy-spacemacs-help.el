@@ -252,7 +252,7 @@
            (layer-sym (intern layer-str))
            (package-str (caddr args))
            (path (configuration-layer/get-layer-path layer-sym))
-           (filename (concat path "packages.el")))
+           (filename (concat path "README.org")))
       (find-file filename)
       (goto-char (point-min))
       (re-search-forward (format "init-%s" package-str))

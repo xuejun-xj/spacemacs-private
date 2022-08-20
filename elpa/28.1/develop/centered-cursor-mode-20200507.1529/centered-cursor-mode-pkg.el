@@ -1,0 +1,2 @@
+;;; Generated package description from centered-cursor-mode.el  -*- no-byte-compile: t -*-
+(define-package "centered-cursor-mode" "20200507.1529" "cursor stays vertically centered" 'nil :commit "ebaeb80fba0bafdf6f95706308123dec2cf4b99f" :authors '(("André Riemann" . "andre.riemann@web.de")) :maintainer '("André Riemann" . "andre.riemann@web.de") :keywords '("convenience") :url "https://github.com/andre-r/centered-cursor-mode.el")
