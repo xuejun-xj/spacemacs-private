@@ -88,7 +88,6 @@ This function should only modify configuration layer settings."
 
      ;; Tags
      ;; lsp-bridge(no this layer, put into personal layer)
-     ;; lsp
      ;; gtags
 
      ;; Themes
@@ -108,6 +107,18 @@ This function should only modify configuration layer settings."
 
      ;; programming
      emacs-lisp
+     (lsp :variables
+          lsp-ui-sideline-show-symbol t)
+     (c-c++ :variables
+            c-c++-backend 'lsp-clangd
+            c-c++-lsp-semantic-highlight-method 'rainbow
+            c-c++-adopt-subprojects t
+            c-c++-default-mode-for-headers 'c-mode
+            c-c++-enable-organize-includes-on-save t
+            c-c++-enable-clang-format-on-save nil
+            c-c++-enable-google-style t
+            c-c++-enable-google-newline t
+            c-c++-adopt-subprojects t)
      )
 
 
