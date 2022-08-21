@@ -6,7 +6,7 @@
 /*.zip
 .DS_Store
 .ac-php-conf.json
-.cache
+.cache/*
 .dap-breakpoints
 .directory
 .emacs.desktop
