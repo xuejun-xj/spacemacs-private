@@ -108,7 +108,9 @@ This function should only modify configuration layer settings."
      ;; programming
      emacs-lisp
      (lsp :variables
-          lsp-ui-sideline-show-symbol t)
+          lsp-ui-sideline-show-symbol t
+          lsp-rust-server 'rust-analyzer
+          cargo-process-reload-on-modify t)
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
             c-c++-lsp-semantic-highlight-method 'rainbow
@@ -119,6 +121,9 @@ This function should only modify configuration layer settings."
             c-c++-enable-google-style t
             c-c++-enable-google-newline t
             c-c++-adopt-subprojects t)
+     (rust :variables
+           rust-backend 'lsp
+           rust-format-on-save t)
      )
 
 
