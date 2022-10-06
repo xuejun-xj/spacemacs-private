@@ -1,0 +1,2 @@
+;;; Generated package description from orgit-forge.el  -*- no-byte-compile: t -*-
+(define-package "orgit-forge" "20220422.1625" "Org links to Forge issue buffers" '((emacs "25.1") (compat "28.1.1.0") (forge "0.3") (magit "3.3") (org "9.5") (orgit "1.8")) :commit "0ffae0b325824372e5e6b1451e5e863e170cdef3" :authors '(("Jonas Bernoulli" . "jonas@bernoul.li")) :maintainer '("Jonas Bernoulli" . "jonas@bernoul.li") :keywords '("hypermedia" "vc") :url "https://github.com/magit/orgit-forge")
