@@ -28,7 +28,7 @@ This function should only modify configuration layer settings."
 
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/private/")
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
@@ -76,9 +76,9 @@ This function should only modify configuration layer settings."
               chinese-enable-avy-pinyin nil)
 
      ;; Source control: future learn
-     ;; (git :variables
-     ;;      git-enable-magit-delta-plugin t
-     ;;      git-enable-magit-gitflow-plugin t)
+     (git :variables
+          git-enable-magit-delta-plugin t
+          git-enable-magit-gitflow-plugin t)
      ;; version-control
 
      ;; Spacemacs layers
@@ -124,6 +124,7 @@ This function should only modify configuration layer settings."
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
+     xuejun
      )
 
 
@@ -651,6 +652,9 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (setcdr evil-insert-state-map nil)
+  (setq evil-insert-state-cursor '("DarkGoldenrod2" box))
+  (setq lsp-ui-doc-show-with-cursor t)
+  (setq scroll-margin 15)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-y") 'yank)
@@ -660,6 +664,9 @@ before packages are loaded."
   (define-key evil-normal-state-map [mouse-4] 'evil-previous-line)
   (define-key evil-normal-state-map [mouse-5] 'evil-next-line)
   (spacemacs/set-leader-keys "oy" 'youdao-dictionary-search-at-point+)
+  (spacemacs/set-leader-keys "ms" 'counsel-ag)
+  (defadvice counsel-ag (after advice-for-counsel-ag activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice swiper (after advice-for-swiper activate)
     (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-ex-search-next (after advice-for-evil-ex-search-next activate)
@@ -670,6 +677,10 @@ before packages are loaded."
     (evil-ex-nohighlight))
   (defadvice evil-normal-state (before advice-for-evil-normal-state activate)
     (evil-ex-nohighlight))
+  (defadvice evil-jump-to-tag (after advice-for-evil-jump-to-tag activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
+  (defadvice evil-jump-backward (after advice-for-evil-jump-backward activate)
+    (evil-scroll-line-to-center (line-number-at-pos)))
 )
 
 
