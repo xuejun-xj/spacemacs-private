@@ -681,6 +681,8 @@ before packages are loaded."
     (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-jump-backward (after advice-for-evil-jump-backward activate)
     (evil-scroll-line-to-center (line-number-at-pos)))
+  (setq c-default-style "linux"
+        c-basic-offset 4)
 )
 
 
