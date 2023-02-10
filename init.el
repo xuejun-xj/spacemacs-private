@@ -113,13 +113,15 @@ This function should only modify configuration layer settings."
           cargo-process-reload-on-modify t)
      (c-c++ :variables
             c-c++-backend 'lsp-clangd
+            c-c++-lsp-enable-semantic-highlight t
             c-c++-lsp-semantic-highlight-method 'rainbow
             c-c++-adopt-subprojects t
             c-c++-default-mode-for-headers 'c-mode
             c-c++-enable-organize-includes-on-save t
-            c-c++-enable-clang-format-on-save nil
+            c-c++-enable-clang-format-on-save t
             c-c++-enable-google-style t
             c-c++-enable-google-newline t
+            c-c++-enable-rtags-completion t
             c-c++-adopt-subprojects t)
      (rust :variables
            rust-backend 'lsp
