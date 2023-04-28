@@ -117,10 +117,6 @@ This function should only modify configuration layer settings."
             c-c++-lsp-semantic-highlight-method 'rainbow
             c-c++-adopt-subprojects t
             c-c++-default-mode-for-headers 'c-mode
-            c-c++-enable-organize-includes-on-save t
-            c-c++-enable-clang-format-on-save t
-            c-c++-enable-google-style t
-            c-c++-enable-google-newline t
             c-c++-enable-rtags-completion t
             c-c++-adopt-subprojects t)
      (rust :variables
@@ -579,7 +575,7 @@ It should only modify the values of Spacemacs settings."
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup changed
 
    ;; If non-nil activate `clean-aindent-mode' which tries to correct
    ;; virtual indentation of simple modes. This can interfere with mode specific
@@ -657,6 +653,7 @@ before packages are loaded."
   (setq evil-insert-state-cursor '("DarkGoldenrod2" box))
   (setq lsp-ui-doc-show-with-cursor t)
   (setq scroll-margin 15)
+  (setq-default indent-tabs-mode t)
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-y") 'yank)
@@ -683,8 +680,6 @@ before packages are loaded."
     (evil-scroll-line-to-center (line-number-at-pos)))
   (defadvice evil-jump-backward (after advice-for-evil-jump-backward activate)
     (evil-scroll-line-to-center (line-number-at-pos)))
-  (setq c-default-style "linux"
-        c-basic-offset 4)
 )
 
 
