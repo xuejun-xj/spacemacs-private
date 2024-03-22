@@ -122,6 +122,16 @@ This function should only modify configuration layer settings."
      (rust :variables
            rust-backend 'lsp
            rust-format-on-save t)
+     (shell-scripts :variables
+		    shell-scripts-format-on-save nil
+		    shell-scripts-backend 'lsp)
+     (go :variables
+	 go-backend 'lsp
+	 go-run-command "go run"
+	 go-test-command "go test"
+	 go-tab-width 4
+	 go-format-before-save t
+	 go-use-golangci-lint t)
      xuejun
      )
 
@@ -134,7 +144,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(company)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -657,8 +667,8 @@ before packages are loaded."
   (define-key evil-insert-state-map [escape] 'evil-normal-state)
   (define-key evil-normal-state-map (kbd "C-e") 'move-end-of-line)
   (define-key evil-normal-state-map (kbd "C-y") 'yank)
-  (define-key evil-normal-state-map (kbd "]]") 'evil-jump-to-tag)
-  (define-key evil-normal-state-map (kbd "[[") 'evil-jump-backward)
+  (define-key evil-normal-state-map (kbd "]]") 'xref-find-definitions)
+  (define-key evil-normal-state-map (kbd "[[") 'xref-pop-marker-stack)
   (define-key evil-normal-state-map (kbd "/") 'swiper)
   (define-key evil-normal-state-map [mouse-4] 'evil-previous-line)
   (define-key evil-normal-state-map [mouse-5] 'evil-next-line)

@@ -33,3 +33,7 @@
  '(c-annotation-face ((t (:box (:line-width (2 . 2) :color "yellow" :style released-button) :inherit font-lock-constant-face))))
  '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t)
  '(hl-line ((t (:extend t :background "#334488")))))
+(defun shell-tab-width()
+  (make-local-variable 'tab-width)
+  (setq tab-width 4))
+(add-hook 'shell-script-mode 'shell-tab-width)
