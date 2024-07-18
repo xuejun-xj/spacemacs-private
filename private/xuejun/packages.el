@@ -41,7 +41,9 @@
 ;;; Code:
 
 (defconst xuejun-packages
-  '(goggles)
+  '(
+    goggles
+    )
   "The list of Lisp packages required by the xuejun layer.
 
 Each entry is either:
@@ -75,3 +77,4 @@ Each entry is either:
      :config
      (setq-default goggles-pulse t)) ;; set to nil to disable pulsing
    )
+
